@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  title     String
+  subject   String
+  content   String
+  pages     Int      @default(1)
+  createdAt DateTime @default(now())
+}
+
+model StudyPlan {
+  id        String   @id @default(cuid())
+  subject   String
+  title     String
+  days      Int
+  plan      String // JSON string: [{day, focus, topics, tasks, hours}]
+  tips      String // JSON string: [string]
+  createdAt DateTime @default(now())
+}
+
+model QuizAttempt {
+  id        String   @id @default(cuid())
+  subject   String
+  topic     String
+  score     Int
+  total     Int
+  createdAt DateTime @default(now())
+}
+
+model TopicProgress {
+  id        String   @id @default(cuid())
+  subject   String
+  topic     String
+  mastery   Int      @default(0) // 0-100
+  attempts  Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model UserProfile {
+  id            String @id @default(cuid())
+  name          String @default("Student")
+  streak        Int    @default(0)
+  lastActiveDay String @default("") // yyyy-mm-dd
+  xp            Int    @default(0)
+}

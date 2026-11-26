@@ -1,0 +1,33 @@
+[project]
+name = "studybuddy"
+version = "0.1.0"
+description = "StudyBuddy AI — LangGraph study agents with cited RAG, planning and quizzes"
+readme = "README.md"
+authors = [
+    { name = "Amit Singupalli", email = "amitsingupalli26@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.165.0",
+    "langchain-core>=1.8.4",
+    "langchain-openai>=1.8.5",
+    "langgraph>=1.2.24",
+    "pydantic>=2.14.4",
+    "pydantic-settings>=2.16.3",
+    "pypdf>=7.1.1",
+    "python-multipart>=0.0.34",
+    "reportlab>=5.1.2",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+studybuddy = "studybuddy:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

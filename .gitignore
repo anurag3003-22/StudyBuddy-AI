@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# Local runtime state (agent demo store, uploads, built demo PDF)
+data/state.json
+data/state.tmp
+data/uploads/
+data/demo/*.pdf
+
+# Secrets
+.env
+.env.local
